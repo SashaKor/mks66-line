@@ -4,6 +4,14 @@ from display import *
 
 def draw_line( x0, y0, x1, y1, screen, color ):
     #setting origin pt
+    if (x0> x1):
+        originX= x0
+        originY= y0
+        x0= x1
+        y0= y1
+        x1= originX
+        y1= originY
+
     x = x0
     y = y0
     A = y1-y0
