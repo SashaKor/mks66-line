@@ -3,8 +3,9 @@ from display import *
 
 
 def draw_line( x0, y0, x1, y1, screen, color ):
-    #setting origin pt
-    if (x0> x1):
+    #setting origin pt, want second set of coors to be bigger than first
+    #swap procedure
+    if (x0 > x1):
         originX= x0
         originY= y0
         x0= x1
@@ -31,9 +32,9 @@ def draw_line( x0, y0, x1, y1, screen, color ):
 
     # octant 1
     if (m <= 1 and m >= 0 ):
-        print("octant 1 m: "+str(m))
+        #print("octant 1 m: "+str(m))
         d = 2*A+B
-        while x<= x1:
+        while x <= x1:
             plot(screen, color, x, y)
             if d > 0:# error counting
                 y += 1
@@ -43,19 +44,19 @@ def draw_line( x0, y0, x1, y1, screen, color ):
 
     # octant 2
     if (m > 1 and m != 10^5):
-        print("octant 2 m: "+ str(m))
-        d= A+2*B
-        while y<= y1:
+        #print("octant 2 m: "+ str(m))
+        d= A+(2*B)
+        while y <= y1:
             plot(screen, color, x, y)
-            if d > 0:
-                x+=1
-                d+=2*A
-            y+=1
+            if d < 0:
+                x+= 1
+                d+= 2*A
+            y+= 1
             d+= 2*B
 
-    #Octant 7 again with the horizontal movement and vertical adjustment, but negative
+    #Octant 8;  again with the horizontal movement and vertical adjustment, but negative
     if (m < 0 and m >= -1 ):
-        print("octant 7 m: "+str(m))
+        #print("octant 8 m: "+str(m))
         d = 2*A+B
         while x<= x1:
             plot(screen, color, x, y)
@@ -65,13 +66,13 @@ def draw_line( x0, y0, x1, y1, screen, color ):
             x += 1
             d -= 2*A
 
-    #Octant 8 like octant 2 but negative
+    #Octant 7 like octant 2 but negative
     if (m < -1 and m != 10^5):
-        print("octant 8 m: "+ str(m))
+        #print("octant 7 m: "+ str(m))
         d= A+2*B
         while y >= y1:
             plot(screen, color, x, y)
-            if d > 0:
+            if d < 0:
                 x+=1
                 d-=2*A
             y -=1
